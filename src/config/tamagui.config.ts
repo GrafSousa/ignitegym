@@ -1,27 +1,40 @@
 import { createFont, createTamagui, createTokens } from 'tamagui';
 
-const interFont = createFont({
-  family: 'Roboto_700Bold, Roboto_400Regular, sans-serif',
-  size: {
-    xs: 12,
-    sm: 14,
-    md: 16,
-    true: 16,
-    lg: 18,
-    xl: 20,
-  },
-});
+const fontSizes = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  true: 16,
+  lg: 18,
+  xl: 20,
+};
+
+const createCustomFont = (family: string) => {
+  return createFont({
+    family,
+    size: fontSizes,
+  });
+};
+
+const headingFont = createCustomFont('Roboto_700Bold');
+const bodyFont = createCustomFont('Roboto_400Regular');
 
 const size = {
+  3: 12,
+  4: 16,
+  10: 40,
   14: 56,
   true: 56,
+  24: 96,
+  28: 112,
+  32: 128,
   33: 148,
 };
 
 export const tokens = createTokens({
   size,
   space: { ...size, '-1': -5, '-2': -10 },
-  radius: { 0: 0, true: 0, 1: 3 },
+  radius: { 0: 0, true: 0, 1: 3, 2: 6 },
   zIndex: { 0: 0, true: 0, 1: 100, 2: 200 },
   color: {
     green500: '#00b37e',
@@ -41,8 +54,8 @@ export const tokens = createTokens({
 const tamaguiConfig = createTamagui({
   tokens,
   fonts: {
-    heading: interFont,
-    body: interFont,
+    heading: headingFont,
+    body: bodyFont,
   },
   themes: {
     light: {
@@ -61,11 +74,16 @@ const tamaguiConfig = createTamagui({
   // Be sure to have `as const` at the end
 
   shorthands: {
+    mv: 'marginVertical',
+    mt: 'marginTop',
+    mb: 'marginBottom',
+    ph: 'paddingHorizontal',
     bg: 'backgroundColor',
     px: 'paddingHorizontal',
     f: 'flex',
     m: 'margin',
     w: 'width',
+    h: 'height',
   } as const,
 });
 

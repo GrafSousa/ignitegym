@@ -1,19 +1,30 @@
+import { useNavigation } from '@react-navigation/native';
 import { YStack, Image, Text, Heading, ScrollView } from 'tamagui';
+
+import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 
 import LogoSvg from '@assets/logo.svg';
 import BackgroundImg from '@assets/background.png';
+
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 export function SignIn() {
+  const navigation = useNavigation<AuthNavigatorRoutesProps>();
+
+  function handleNewAccount() {
+    navigation.navigate('signUp');
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{ flex: 1 }}
       showsVerticalScrollIndicator={false}
     >
-      <YStack f={1} bg='$gray700' ph='$10'>
+      <YStack f={1} ph='$10'>
         <Image
           source={BackgroundImg}
+          defaultSource={BackgroundImg}
           alt='Pessoas treinando'
           resizeMode='contain'
           position='absolute'
@@ -57,7 +68,11 @@ export function SignIn() {
           Ainda não tem acesso?
         </Text>
 
-        <Button title='Criar conta' variant='outlined' />
+        <Button
+          title='Criar conta'
+          variant='outlined'
+          onPress={handleNewAccount}
+        />
       </YStack>
     </ScrollView>
   );

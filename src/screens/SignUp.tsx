@@ -1,19 +1,28 @@
+import { useNavigation } from '@react-navigation/native';
 import { YStack, Image, Text, Heading, ScrollView } from 'tamagui';
 
 import LogoSvg from '@assets/logo.svg';
 import BackgroundImg from '@assets/background.png';
+
 import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 export function SignUp() {
+  const navigation = useNavigation();
+
+  function handleGoBack() {
+    navigation.goBack();
+  }
+
   return (
     <ScrollView
       contentContainerStyle={{ flex: 1 }}
       showsVerticalScrollIndicator={false}
     >
-      <YStack f={1} bg='$gray700' ph='$10'>
+      <YStack f={1} ph='$10'>
         <Image
           source={BackgroundImg}
+          defaultSource={BackgroundImg}
           alt='Pessoas treinando'
           resizeMode='contain'
           position='absolute'
@@ -49,7 +58,12 @@ export function SignUp() {
 
         <Button title='Criar e acessar' />
 
-        <Button title='Voltar para o login' variant='outlined' mt='$24' />
+        <Button
+          title='Voltar para o login'
+          variant='outlined'
+          mt='$24'
+          onPress={handleGoBack}
+        />
       </YStack>
     </ScrollView>
   );

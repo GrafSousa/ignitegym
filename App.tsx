@@ -10,8 +10,7 @@ import {
 import { tamaguiConfig } from './src/config/tamagui.config';
 
 import { Loading } from '@components/Loading';
-import { SignIn } from '@screens/Signin';
-import { SignUp } from '@screens/SignUp';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
@@ -24,7 +23,7 @@ export default function App() {
         translucent
       />
 
-      {fontsLoaded ? <SignUp /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </TamaguiProvider>
   );
 }

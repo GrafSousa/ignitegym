@@ -22,6 +22,7 @@ const bodyFont = createCustomFont('Roboto_400Regular');
 const size = {
   3: 12,
   4: 16,
+  6: 24,
   10: 40,
   14: 56,
   true: 56,

@@ -20,12 +20,19 @@ const headingFont = createCustomFont('Roboto_700Bold');
 const bodyFont = createCustomFont('Roboto_400Regular');
 
 const size = {
+  0.5: 2,
+  1: 4,
+  2: 8,
   3: 12,
   4: 16,
+  5: 20,
   6: 24,
+  7: 28,
+  8: 32,
   10: 40,
   14: 56,
   true: 56,
+  16: 64,
   24: 96,
   28: 112,
   32: 128,
@@ -75,9 +82,12 @@ const tamaguiConfig = createTamagui({
   // Be sure to have `as const` at the end
 
   shorthands: {
+    mr: 'marginRight',
     mv: 'marginVertical',
     mt: 'marginTop',
     mb: 'marginBottom',
+    pt: 'paddingTop',
+    pb: 'paddingBottom',
     ph: 'paddingHorizontal',
     bg: 'backgroundColor',
     px: 'paddingHorizontal',

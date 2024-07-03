@@ -37,6 +37,7 @@ const size = {
   28: 112,
   32: 128,
   33: 148,
+  34: 153,
 };
 
 export const tokens = createTokens({
@@ -86,6 +87,8 @@ const tamaguiConfig = createTamagui({
     mv: 'marginVertical',
     mt: 'marginTop',
     mb: 'marginBottom',
+    p: 'padding',
+    pr: 'paddingRight',
     pt: 'paddingTop',
     pb: 'paddingBottom',
     ph: 'paddingHorizontal',
@@ -95,6 +98,7 @@ const tamaguiConfig = createTamagui({
     m: 'margin',
     w: 'width',
     h: 'height',
+    br: 'borderRadius',
   } as const,
 });
 
